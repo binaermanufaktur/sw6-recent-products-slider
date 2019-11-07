@@ -1,0 +1,6 @@
+{% sw_extends '@BaseThemeVCK/layout/footer/footer.html.twig' %}
+
+{% block pre_footer_includes %}
+    {{ parent() }}
+    {% sw_include '@Storefront/viewedproducts/viewedproducts.html.twig'%}
+{% endblock %}
