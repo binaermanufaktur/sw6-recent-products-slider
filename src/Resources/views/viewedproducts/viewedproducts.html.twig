@@ -37,12 +37,12 @@
                           {% block recently_viewed_products_slider_controls_items %}
                               <button class="base-slider-controls-prev product-slider-controls-prev{% if sliderConfig.border.value %} has-border{% endif %}">
                                   {% block recently_viewed_products_slider_controls_items_prev_icon %}
-                                      {% sw_icon 'arrow-head-left' %}
+                                      {% sw_icon 'arrow-large-left' style { 'pack': 'solid' } %}
                                   {% endblock %}
                               </button>
                               <button class="base-slider-controls-next product-slider-controls-next{% if sliderConfig.border.value %} has-border{% endif %}">
                                   {% block recently_viewed_products_slider_controls_items_next_icon %}
-                                      {% sw_icon 'arrow-head-right' %}
+                                      {% sw_icon 'arrow-large-right' style { 'pack': 'solid' } %}
                                   {% endblock %}
                               </button>
                           {% endblock %}
