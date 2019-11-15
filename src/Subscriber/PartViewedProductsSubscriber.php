@@ -2,12 +2,8 @@
 
 namespace PartViewedProducts\Subscriber;
 
-use Shopware\Core\Content\Product\ProductEvents;
-use Shopware\Core\Framework\DataAbstractionLayer\Event\EntityLoadedEvent;
-use Shopware\Storefront\Page\PageLoadedEvent;
 use Shopware\Storefront\Page\Product\ProductPageLoadedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Twig\Environment;
 
 class PartViewedProductsSubscriber implements EventSubscriberInterface/**
  * Returns an array of event names this subscriber wants to listen to.

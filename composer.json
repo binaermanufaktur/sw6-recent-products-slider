@@ -1,8 +1,14 @@
 {
   "name": "part/viewed-products",
   "description": "recently viewed products",
+  "version" : "v1.0.0",
   "type": "shopware-platform-plugin",
   "license": "MIT",
+  "authors": [
+        {
+            "name": "part GmbH"
+        }
+    ],
   "autoload": {
     "psr-4": {
       "PartViewedProducts\\": "src/"
