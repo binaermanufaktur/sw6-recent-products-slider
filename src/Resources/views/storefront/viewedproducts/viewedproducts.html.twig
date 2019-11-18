@@ -17,14 +17,14 @@
                   }
 
                   }'>
-                
+
                   <div class="h2 recently-viewed-product-slider-title">{{ "plugin.recentlyViewedProductsTitle"|trans  }}</div>
-               
+
 
                   <div class="product-slider-container" data-product-slider-container="true">
                       {% for product in page.footer.viewedProducts %}
                           <div class="product-slider-item">
-                              {% sw_include '@Storefront/viewedproducts/viewed-products-single.html.twig' with {
+                              {% sw_include '@Storefront/storefront/viewedproducts/viewed-products-single.html.twig' with {
                                   'layout': sliderConfig.boxLayout.value,
                                   'displayMode': sliderConfig.displayMode.value
                               } %}

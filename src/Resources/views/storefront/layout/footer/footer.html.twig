@@ -1,0 +1,8 @@
+{% sw_extends '@Storefront/storefront/layout/footer/footer.html.twig' %}
+
+{% block pre_footer_includes %}
+    {{ parent() }}
+    {% sw_include '@Storefront/storefront/viewedproducts/viewedproducts.html.twig'%}
+{% endblock %}
+
+
