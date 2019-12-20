@@ -24,6 +24,15 @@ class PartViewedProductsSubscriber implements EventSubscriberInterface/**
  * @return array The event names to listen to
  */
 {
+    /**
+     * @var array
+     */
+    private $viewedProducts;
+
+    public function __construct()
+    {
+        $this->viewedProducts = $_SESSION['viewedproducts'] ?? [];
+    }
     public static function getSubscribedEvents(): array
     {
         return [
@@ -34,9 +43,8 @@ class PartViewedProductsSubscriber implements EventSubscriberInterface/**
     public function updateRecentlyViewedProducts(ProductPageLoadedEvent $event)
     {
         $viewed_product = $event->getPage()->getProduct();
-        $viewedProducts = $_SESSION['viewedproducts'] ?? [];
-        $viewedProducts[$viewed_product->getId()]= $viewed_product;
-        $_SESSION['viewedproducts'] = $viewedProducts;
+        $this->viewedProducts[$viewed_product->getId()]= $viewed_product;
+        $_SESSION['viewedproducts'] = $this->viewedProducts;
     }
 
 

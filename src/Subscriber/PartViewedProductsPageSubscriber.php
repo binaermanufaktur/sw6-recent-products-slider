@@ -29,6 +29,11 @@ class PartViewedProductsPageSubscriber implements EventSubscriberInterface/**
  * @return array The event names to listen to
  */
 {
+    private $viewedProducts;
+    public function __construct()
+    {
+        $this->viewedProducts = $_SESSION['viewedproducts'] ?? [];
+    }
     public static function getSubscribedEvents(): array
     {
         return [
@@ -38,7 +43,6 @@ class PartViewedProductsPageSubscriber implements EventSubscriberInterface/**
 
     public function addRecentlyViewedProductsToPageAssets(FooterPageletLoadedEvent $event)
     {
-        $viewedProducts = $_SESSION['viewedproducts'] ?? [];
-        $event->getPagelet()->assign(['viewedProducts'=> $viewedProducts]);
+        $event->getPagelet()->assign(['viewedProducts'=> $this->viewedProducts]);
     }
 }
