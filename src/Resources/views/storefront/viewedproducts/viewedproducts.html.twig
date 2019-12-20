@@ -1,7 +1,4 @@
 {% if page.footer.viewedProducts %}
-    {% for product in page.footer.viewedProducts %}
-        <p>{{ product.id }}</p>
-    {% endfor %}
     {% block recently_viewed_products_slider %}
       <div class="recently-viewed-products">
         <div class="container">
