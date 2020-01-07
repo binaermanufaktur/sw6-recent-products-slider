@@ -2,13 +2,10 @@
 
 namespace PartViewedProducts\Subscriber;
 
-use Shopware\Core\Content\Product\ProductEvents;
-use Shopware\Core\Framework\DataAbstractionLayer\Event\EntityLoadedEvent;
-use Shopware\Storefront\Page\PageLoadedEvent;
-use Shopware\Storefront\Page\Product\ProductPageLoadedEvent;
+
 use Shopware\Storefront\Pagelet\Footer\FooterPageletLoadedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Twig\Environment;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class PartViewedProductsPageSubscriber implements EventSubscriberInterface/**
  * Returns an array of event names this subscriber wants to listen to.
@@ -29,10 +26,11 @@ class PartViewedProductsPageSubscriber implements EventSubscriberInterface/**
  * @return array The event names to listen to
  */
 {
-    private $viewedProducts;
-    public function __construct()
+    private $session;
+    public function __construct(SessionInterface $session)
     {
-        $this->viewedProducts = $_SESSION['viewedproducts'] ?? [];
+        $this->session= $session;
+        $this->viewedProducts = $this->session->get('viewedproducts') ?? [];
     }
     public static function getSubscribedEvents(): array
     {

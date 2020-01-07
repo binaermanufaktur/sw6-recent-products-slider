@@ -28,10 +28,11 @@ class PartViewedProductsSubscriber implements EventSubscriberInterface/**
      * @var array
      */
     private $viewedProducts;
-
-    public function __construct()
+    private $session;
+    public function __construct($session)
     {
-        $this->viewedProducts = $_SESSION['viewedproducts'] ?? [];
+        $this->session=$session;
+        $this->viewedProducts = $this->session->get('viewedproducts') ?? [];
     }
     public static function getSubscribedEvents(): array
     {
@@ -44,7 +45,7 @@ class PartViewedProductsSubscriber implements EventSubscriberInterface/**
     {
         $viewed_product = $event->getPage()->getProduct();
         $this->viewedProducts[$viewed_product->getId()]= $viewed_product;
-        $_SESSION['viewedproducts'] = $this->viewedProducts;
+        $this->session->set('viewedproducts',$this->viewedProducts);
     }
 
 
