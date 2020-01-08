@@ -1,4 +1,5 @@
-{% if page.footer.viewedProducts %}
+{% if XMLProducts %}
+    {% set viewedProducts = XMLProducts %}
     {% block recently_viewed_products_slider %}
       <div class="recently-viewed-products">
         <div class="container">
@@ -22,7 +23,7 @@
 
 
                   <div class="product-slider-container" data-product-slider-container="true">
-                      {% for product in page.footer.viewedProducts %}
+                      {% for product in viewedProducts %}
                           <div class="product-slider-item">
                               {% sw_include '@Storefront/storefront/viewedproducts/viewed-products-single.html.twig' with {
                                   'layout': sliderConfig.boxLayout.value,

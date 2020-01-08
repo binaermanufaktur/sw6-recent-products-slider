@@ -44,7 +44,9 @@ class PartViewedProductsSubscriber implements EventSubscriberInterface/**
     public function updateRecentlyViewedProducts(ProductPageLoadedEvent $event)
     {
         $viewed_product = $event->getPage()->getProduct();
-        $this->viewedProducts[$viewed_product->getId()]= $viewed_product;
+        if (!in_array($viewed_product, $this->viewedProducts)){
+            array_unshift($this->viewedProducts, $viewed_product);
+        }
         $this->session->set('viewedproducts',$this->viewedProducts);
     }
 
