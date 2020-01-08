@@ -8,6 +8,6 @@ class PartViewedProducts extends Plugin
 {
     public function getStorefrontScriptPath(): string
     {
-        return 'Resources/app/dist/storefront/js';
+        return 'Resources/app/storefront/dist/storefront/js';
     }
 }
