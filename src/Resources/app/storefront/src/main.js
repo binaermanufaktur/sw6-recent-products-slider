@@ -12,7 +12,7 @@ xhr.onreadystatechange = function () {
             //console.log(xhr.response);
             const elem = document.getElementById( 'ViewedProductsContainer' );
             elem.innerHTML = elem.innerHTML + xhr.response;
-            elem.style.removeProperty('style');
+            elem.style.removeProperty('display');
             PluginManager.initializePlugins();
         } else if(xhr.response == 204){
             console.log('No viewed products'); // Endpoint returned Empty Content

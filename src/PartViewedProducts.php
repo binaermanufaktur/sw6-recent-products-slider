@@ -6,4 +6,8 @@ use Shopware\Core\Framework\Plugin;
 
 class PartViewedProducts extends Plugin
 {
+    public function getStorefrontScriptPath(): string
+    {
+        return 'Resources/app/dist/storefront/js';
+    }
 }
