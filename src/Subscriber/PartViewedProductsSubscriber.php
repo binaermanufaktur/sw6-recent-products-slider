@@ -33,6 +33,7 @@ class PartViewedProductsSubscriber implements EventSubscriberInterface/**
     {
         $this->session=$session;
         $this->viewedProducts = $this->session->get('viewedproducts') ?? [];
+        $this->viewedProductIds = $this->session->get('viewedProductIds') ?? [];
     }
     public static function getSubscribedEvents(): array
     {
@@ -43,11 +44,15 @@ class PartViewedProductsSubscriber implements EventSubscriberInterface/**
 
     public function updateRecentlyViewedProducts(ProductPageLoadedEvent $event)
     {
-        $viewed_product = $event->getPage()->getProduct();
-        if (!in_array($viewed_product, $this->viewedProducts)){
-            array_unshift($this->viewedProducts, $viewed_product);
+        $viewedProduct = $event->getPage()->getProduct();
+        $viewedProductId = $viewedProduct->getId();
+        if (!in_array($viewedProductId, $this->viewedProductIds)){
+            array_unshift($this->viewedProducts, $viewedProduct);
+            array_push($this->viewedProductIds, $viewedProductId );
+            $this->session->set('viewedproducts',$this->viewedProducts);
+            $this->session->set('viewedProductIds',$this->viewedProductIds);
         }
-        $this->session->set('viewedproducts',$this->viewedProducts);
+
     }
 
 
