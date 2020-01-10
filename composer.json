@@ -18,7 +18,7 @@
     "shopware-plugin-class": "PartViewedProducts\\PartViewedProducts",
     "label": {
       "de-DE": "Ein Plugin für zuletzt betrachtete Artikel",
-      "en-GB": "A plugin for recently viewed articles"
+      "en-GB": "A plugin for recently viewed products"
     }
   }
 }
