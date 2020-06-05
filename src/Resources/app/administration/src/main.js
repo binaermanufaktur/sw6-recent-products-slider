@@ -1,4 +1,4 @@
-import './module/sw-cms/blocks/recent-products-slider';
+import './module/sw-cms/blocks/recent-product-slider';
 import deDE from './module/sw-cms/snippets/de-DE.json';
 import enGB from './module/sw-cms/snippets/en-GB.json';
 
